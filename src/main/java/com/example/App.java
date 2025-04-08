@@ -12,13 +12,13 @@ import java.io.File;
 public class App {
     public static void main(String[] args) throws Exception {
         // Create a temporary directory for the user data
-        Path tempUserDataDir = Files.createTempDirectory("chrome-user-data");
+        Path profileDir = Files.createTempDirectory("chrome-ud-"+System.getenv("BUILD_NUMBER"));
 
         // Set up ChromeOptions
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
-        options.addArguments("--user-data-dir=" + tempUserDataDir.toAbsolutePath().toString());
-
+        options.addArguments("--user-data-dir=" + profileDir.toAbsolutePath());
+	options.addArguments("--disable-dev-shm-usage");
         // Initialize WebDriver with ChromeOptions
         WebDriver driver = new ChromeDriver(options);
 
