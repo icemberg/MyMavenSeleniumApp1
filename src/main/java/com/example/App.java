@@ -33,7 +33,7 @@ public class App {
         driver.quit();
 
         // Clean up the temporary directory
-        deleteDirectory(tempUserDataDir.toFile());
+        deleteDirectory(profileDir.toFile());
     }
 
     // Method to delete the temporary directory
