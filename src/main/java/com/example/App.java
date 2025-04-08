@@ -12,7 +12,7 @@ import java.io.File;
 public class App {
     public static void main(String[] args) throws Exception {
         // Create a temporary directory for the user data
-        Path profileDir = Files.createTempDirectory("chrome-ud-"+System.getenv("BUILD_NUMBER"));
+        Path profileDir = Files.createTempDirectory("chrome-ud-"+ System.currentTimeMillis());
 
         // Set up ChromeOptions
         ChromeOptions options = new ChromeOptions();
